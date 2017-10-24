@@ -1,4 +1,4 @@
-# PrettyGoodReas
+# PrettyGoodReads
 
 ## About
 

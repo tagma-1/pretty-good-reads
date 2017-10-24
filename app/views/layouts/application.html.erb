@@ -7,10 +7,25 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  
-    <%= yield %>
-  </body>
+  
+  <div class="container">
+    <div class="header">
+      <h1 align="left">PrettyGoodReads</h1>
+      <p align="right">
+        <% if user_signed_in? %>
+          Hello <strong><%= current_user.email %></strong>!
+          <%= link_to('Edit account', edit_user_registration_path) %> |
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete  %>
+        <% else %>
+          <%= link_to('Sign up', new_user_registration_path) %> |
+          <%= link_to('Login', new_user_session_path) %>
+        <% end %>
+      </p>
+    </div>
+    <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>  
+      <%= yield %>
+    </body>
+  </div>
 </html>
