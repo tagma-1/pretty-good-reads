@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@book, :html => { class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :title, 'Book Title:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :title, class: "form-control", placeholder: "Enter book title.", autofocus: true%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :author, 'Book Author:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :author, class: "form-control", placeholder: "Enter book author." %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :publisher, 'Book Publisher:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :publisher, class: "form-control", placeholder: "Enter book publisher."%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :ISBN, 'Book ISBN:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :ISBN, class: "form-control", placeholder: "Enter book ISBN."%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :year_published, 'Year of publication:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.date_field :year_published, class: 'form-control', placeholder: 'Year of publication'%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :synopsis, 'Book Synopsis:' %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :synopsis, class: "form-control", placeholder: "Enter book synopsis."%>
+        </div>
+      </div>
+      <div class = "form-group">
+        <div class = "col-md-offset-2 col-md-10">
+          <%= f.submit(@book.new_record? ? "Create new book" : "Update #{book.name}", class: "btn btn-primary btn-lg btn-xlarge") %>
+        </div>
+      </div>
+    <% end %>
+    <div class = "col-md-4 col-md-offset-4 colormatch">
+      [ <%= link_to 'Cancel request and return to books listing', books_path %> ]
+    </div>
+  </div>
+</div>

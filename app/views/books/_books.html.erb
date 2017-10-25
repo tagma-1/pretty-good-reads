@@ -1,0 +1,16 @@
+<% obj.each do |book| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section>
+        <img src="http://covers.openlibrary.org/b/isbn/<%= book.ISBN %>-M.jpg"/>
+      </section>
+    </div>
+    <div class="col-md-10 card card-body bg-light">
+      <h4><%= link_to book.title, book_path(book) %></h4>
+      <p><%= book.author %></p>
+      <p><small>Published by <%= book.publisher %></small></p>
+      <p><%= truncate(book.synopsis, length: 300) %></p>
+    </div>
+  </div>
+  <br />
+<% end %> 

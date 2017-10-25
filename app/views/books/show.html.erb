@@ -1,0 +1,53 @@
+<h2 align="center"><%= @book.title %></h2>
+<hr />
+<br>
+<div class="row">
+    <div class="col-md-2">
+      <section>
+        <img src="http://covers.openlibrary.org/b/isbn/<%= @book.ISBN %>-M.jpg"/>
+      </section>
+    </div>
+    <div class="col-md-9 offset-md-1">
+      <h4>Author: <%= @book.author %></h4>
+      <p>Published by <%= @book.publisher %></p>
+      <p><%= @book.synopsis %></p>
+    </div>
+  </div>
+<hr />
+<% if @book.reviews.count > 0 %>
+  <dl class="row">
+    <dt class="col-md-3">Review Stats:</dt>
+    <dd class="col-md-3"><%= pluralize(@review_count, 'review') %></dd>
+    
+    <dt class="col-md-3">Average Rating</dt>
+    <dd class="col-md-3"><%= @average_rating %></dd>
+  </dl>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Rating</th>
+        <th>Review</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @book.reviews.each do |review| %>
+        <tr>
+          <td><%= User.find(review.user_id).email %></td>
+          <td><%= review.rating %> out of 5</td>
+          <td><%= review.content %></td>
+          <td><%= review.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <h4 align="center">No reviews to display. Be the first to write one below!</h4>
+  <% end %>
+<br>
+<hr />
+<%= render 'reviews/form' %>
+<hr />
+<%= link_to 'Back to Books Index', book_path %>
