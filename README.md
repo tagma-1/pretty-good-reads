@@ -2,7 +2,7 @@
 
 ## About
 
-This is a demo Rails application for planning, designing and building a review system that is loosely based on Good Reads.
+This is a demo Rails application for planning, designing and building a review system that is loosely based on Good Reads. It remains in development.
 
 ## Planning
 
